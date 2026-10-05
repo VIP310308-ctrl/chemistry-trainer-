@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Химия Тренажёр">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>Химия — Тренажёр</title>
+<style>
+:root{--bg:#0b1020;--card:#131a2e;--card2:#19223a;--text:#f8fafc;--muted:#9ca3af;--accent:#6d7cff;--green:#22c55e;--red:#ef4444;--line:#29334e}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:linear-gradient(160deg,#0b1020,#111827);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+body{padding-bottom:env(safe-area-inset-bottom)}button{font:inherit}
+.app{width:min(760px,100%);margin:auto;padding:18px 14px 42px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.logo{display:flex;gap:11px;align-items:center}.logo-icon{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#7c83ff,#4f46e5);display:grid;place-items:center;font-size:24px}
+h1{font-size:22px;margin:0}.subtitle{font-size:12px;color:var(--muted);margin-top:2px}
+.card{background:rgba(19,26,46,.96);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 20px 60px #0005;margin-bottom:13px}
+.hero{padding:23px}.hero h2{font-size:28px;line-height:1.1;margin:10px 0}.hero p{color:var(--muted);line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:16px;background:var(--card2);color:var(--text);padding:15px 14px;font-weight:750;cursor:pointer;border:1px solid var(--line)}.btn.primary{background:linear-gradient(135deg,#7180ff,#5148e8);border:0}.btn.danger{color:#fecaca}
+.mode{text-align:left;min-height:88px}.mode strong{display:block;font-size:16px;margin-bottom:5px}.mode small{color:var(--muted);font-weight:500;line-height:1.3}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quick div{background:#0f1629;border:1px solid var(--line);border-radius:15px;padding:12px;text-align:center}.quick b{display:block;font-size:21px}.quick span{color:var(--muted);font-size:11px}
+.topline{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;font-weight:700}.progress{height:7px;background:#252e46;border-radius:10px;overflow:hidden;margin:10px 0 16px}#progress{height:100%;width:0;background:linear-gradient(90deg,#7785ff,#b16cff);transition:width .25s}
+.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{padding:7px 10px;background:#202a48;border-radius:99px;font-size:12px;color:#c7d2fe}
+.question{font-size:22px;line-height:1.35;font-weight:800;margin:17px 0}
+.answer{display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;background:#11182b;color:var(--text);border:1px solid #2a3550;border-radius:17px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.35;font-weight:650}.answer:disabled{cursor:default}.letter{flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:#242e4a;display:grid;place-items:center;font-weight:800;font-size:13px}.answer.correct{border-color:#22c55e;background:#0d291a}.answer.correct .letter{background:#15803d}.answer.wrong{border-color:#ef4444;background:#2a1116}.answer.wrong .letter{background:#b91c1c}
+.feedback{padding:14px;border-radius:16px;line-height:1.45;margin-top:12px;border:1px solid}.feedback.good{background:#092416;border-color:#166534}.feedback.bad{background:#281015;border-color:#991b1b}.hidden{display:none!important}
+.navrow{display:flex;gap:9px;justify-content:space-between;margin-bottom:12px}.navrow .btn{padding:10px 13px}
+.result{text-align:center;padding:26px 18px}.result-icon{font-size:44px}.percent{font-size:64px;font-weight:900;margin:5px 0}.result-line{color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}.result-grid div{background:#0f1629;border-radius:15px;padding:12px}.result-grid b{display:block;font-size:20px}.result-grid small{color:var(--muted)}.actions{display:grid;gap:8px}
+.stats-big{font-size:56px;font-weight:900;text-align:center;margin:10px}.stat-list{margin:15px 0}.stat-list div{display:flex;justify-content:space-between;padding:13px 2px;border-bottom:1px solid var(--line)}.stat-list span{color:var(--muted)}
+.footer{text-align:center;color:#667085;font-size:11px;margin-top:16px;line-height:1.4}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.question{font-size:20px}}
+</style></head>
+<body><main class="app">
+<header><div class="logo"><div class="logo-icon">🧪</div><div><h1>Химия: тренажёр</h1><div class="subtitle">по твоему ФОС • режим билетов</div></div></div><button class="btn" onclick="renderStats()">📊</button></header>
+
+<section id="home" class="card hero">
+  <div class="pills"><span class="pill">50 вопросов</span><span class="pill">Общая химия</span><span class="pill">Биоорганика</span></div>
+  <h2>Натаскиваемся до автоматизма.</h2>
+  <p>Как в билетах ПДД: выбираешь вариант, сразу получаешь разбор ошибки, а ошибочные вопросы автоматически возвращаются в отдельную тренировку.</p>
+  <div class="quick">
+    <div><b id="totalAnswered">0</b><span>решено</span></div>
+    <div><b id="totalCorrect">0</b><span>правильно</span></div>
+    <div><b id="bestStreak">0</b><span>лучшая серия</span></div>
+  </div>
+</section>
+
+<section id="homeModes" class="card">
+  <div class="grid">
+    <button class="btn primary mode" onclick="prepare('ticket')"><strong>🎫 Случайный билет</strong><small>20 вопросов • каждый раз новый порядок</small></button>
+    <button class="btn mode" onclick="prepare('all')"><strong>📚 Все вопросы</strong><small>Вся база в перемешанном порядке</small></button>
+    <button class="btn mode" onclick="prepare('general')"><strong>⚗️ Общая химия</strong><small>Термодинамика, растворы, буферы и др.</small></button>
+    <button class="btn mode" onclick="prepare('bio')"><strong>🧬 Биоорганика</strong><small>Углеводы, липиды, аминокислоты, ГЦ</small></button>
+  </div>
+  <button class="btn" style="width:100%;margin-top:10px" onclick="prepare('mistakes')">🔁 Повторить ошибки — <b id="mistakeCount">0</b></button>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="navrow"><button class="btn" onclick="renderHome()">← Меню</button><button class="btn" onclick="renderStats()">📊 Статистика</button></div>
+  <div class="card">
+    <div class="topline"><span id="modeName"></span><span id="counter"></span></div>
+    <div class="progress"><div id="progress"></div></div>
+    <div class="topline"><span id="category"></span><span id="scoreNow"></span></div>
+    <div id="question" class="question"></div>
+    <div id="answers"></div>
+    <div id="feedback" class="feedback hidden"></div>
+    <button id="nextBtn" class="btn primary hidden" style="width:100%;margin-top:12px" onclick="nextQuestion()">Следующий вопрос →</button>
+  </div>
+</section>
+
+<section id="result" class="card result hidden"></section>
+<section id="stats" class="card hidden"><h2>📊 Статистика</h2><div id="statsBody"></div><button class="btn" style="width:100%;margin-top:9px" onclick="renderHome()">← В меню</button></section>
+<div class="footer">Учебный тренажёр • вопросы основаны на предоставленном комплекте тестовых заданий</div>
+</main>
+<script src="app.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
+</body></html>
