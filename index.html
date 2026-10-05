@@ -3,77 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b1020">
+<meta name="theme-color" content="#f5f7fa">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Химия Тренажёр">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Химия">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon.svg">
-<title>Химия — Тренажёр</title>
+<title>Химия — тренажёр</title>
 <style>
-:root{--bg:#0b1020;--card:#131a2e;--card2:#19223a;--text:#f8fafc;--muted:#9ca3af;--accent:#6d7cff;--green:#22c55e;--red:#ef4444;--line:#29334e}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:linear-gradient(160deg,#0b1020,#111827);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
-body{padding-bottom:env(safe-area-inset-bottom)}button{font:inherit}
-.app{width:min(760px,100%);margin:auto;padding:18px 14px 42px}
-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.logo{display:flex;gap:11px;align-items:center}.logo-icon{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#7c83ff,#4f46e5);display:grid;place-items:center;font-size:24px}
-h1{font-size:22px;margin:0}.subtitle{font-size:12px;color:var(--muted);margin-top:2px}
-.card{background:rgba(19,26,46,.96);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 20px 60px #0005;margin-bottom:13px}
-.hero{padding:23px}.hero h2{font-size:28px;line-height:1.1;margin:10px 0}.hero p{color:var(--muted);line-height:1.5}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:16px;background:var(--card2);color:var(--text);padding:15px 14px;font-weight:750;cursor:pointer;border:1px solid var(--line)}.btn.primary{background:linear-gradient(135deg,#7180ff,#5148e8);border:0}.btn.danger{color:#fecaca}
-.mode{text-align:left;min-height:88px}.mode strong{display:block;font-size:16px;margin-bottom:5px}.mode small{color:var(--muted);font-weight:500;line-height:1.3}
-.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quick div{background:#0f1629;border:1px solid var(--line);border-radius:15px;padding:12px;text-align:center}.quick b{display:block;font-size:21px}.quick span{color:var(--muted);font-size:11px}
-.topline{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;font-weight:700}.progress{height:7px;background:#252e46;border-radius:10px;overflow:hidden;margin:10px 0 16px}#progress{height:100%;width:0;background:linear-gradient(90deg,#7785ff,#b16cff);transition:width .25s}
-.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{padding:7px 10px;background:#202a48;border-radius:99px;font-size:12px;color:#c7d2fe}
-.question{font-size:22px;line-height:1.35;font-weight:800;margin:17px 0}
-.answer{display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;background:#11182b;color:var(--text);border:1px solid #2a3550;border-radius:17px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.35;font-weight:650}.answer:disabled{cursor:default}.letter{flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:#242e4a;display:grid;place-items:center;font-weight:800;font-size:13px}.answer.correct{border-color:#22c55e;background:#0d291a}.answer.correct .letter{background:#15803d}.answer.wrong{border-color:#ef4444;background:#2a1116}.answer.wrong .letter{background:#b91c1c}
-.feedback{padding:14px;border-radius:16px;line-height:1.45;margin-top:12px;border:1px solid}.feedback.good{background:#092416;border-color:#166534}.feedback.bad{background:#281015;border-color:#991b1b}.hidden{display:none!important}
-.navrow{display:flex;gap:9px;justify-content:space-between;margin-bottom:12px}.navrow .btn{padding:10px 13px}
-.result{text-align:center;padding:26px 18px}.result-icon{font-size:44px}.percent{font-size:64px;font-weight:900;margin:5px 0}.result-line{color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}.result-grid div{background:#0f1629;border-radius:15px;padding:12px}.result-grid b{display:block;font-size:20px}.result-grid small{color:var(--muted)}.actions{display:grid;gap:8px}
-.stats-big{font-size:56px;font-weight:900;text-align:center;margin:10px}.stat-list{margin:15px 0}.stat-list div{display:flex;justify-content:space-between;padding:13px 2px;border-bottom:1px solid var(--line)}.stat-list span{color:var(--muted)}
-.footer{text-align:center;color:#667085;font-size:11px;margin-top:16px;line-height:1.4}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.question{font-size:20px}}
-</style></head>
-<body><main class="app">
-<header><div class="logo"><div class="logo-icon">🧪</div><div><h1>Химия: тренажёр</h1><div class="subtitle">по твоему ФОС • режим билетов</div></div></div><button class="btn" onclick="renderStats()">📊</button></header>
+:root{--bg:#f4f6f8;--card:#fff;--text:#18202a;--muted:#77818c;--blue:#1677ff;--blue2:#eaf2ff;--green:#22a06b;--greenbg:#eaf8f1;--red:#e5484d;--redbg:#fff0f0;--line:#e2e6eb;--shadow:0 4px 18px rgba(25,39,52,.07)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}button{font:inherit}
+.app{width:min(720px,100%);margin:auto;padding:0 14px 28px}.topbar{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px}.brand-icon{width:38px;height:38px;border-radius:11px;background:#1677ff;color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 4px 10px #1677ff33}.brand h1{font-size:20px;margin:0;font-weight:800}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:1px}.iconbtn{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--text);box-shadow:var(--shadow)}
+.screen-title{font-size:27px;font-weight:850;margin:12px 2px 16px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:17px;margin-bottom:12px}.start-card{padding:20px}.start-card .eyebrow{color:var(--blue);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.4px}.start-card h2{font-size:25px;line-height:1.15;margin:7px 0}.start-card p{color:var(--muted);font-size:14px;line-height:1.45;margin:0 0 15px}.primary{background:var(--blue)!important;color:#fff!important;border-color:var(--blue)!important}.btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:13px;padding:13px 14px;font-weight:750;box-shadow:none}.btn:active{transform:scale(.99)}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#f7f9fb;border-radius:14px;padding:12px;text-align:center}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:19px 2px 10px}.section-head h3{margin:0;font-size:18px}.section-head button{border:0;background:none;color:var(--blue);font-weight:700}.mode-list{display:grid;gap:9px}.mode{display:flex;align-items:center;text-align:left;gap:12px;width:100%;padding:14px;border:1px solid var(--line);background:#fff;border-radius:16px;box-shadow:var(--shadow)}.mode-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:var(--blue2);display:grid;place-items:center;font-size:20px}.mode-copy{min-width:0}.mode strong{display:block;font-size:15px;margin-bottom:3px}.mode small{display:block;color:var(--muted);font-size:12px;line-height:1.3}.mode-arrow{margin-left:auto;color:#a0a8b1;font-size:22px}.mistake{background:#fff7f7;border-color:#f4d2d3}.mistake .mode-icon{background:var(--redbg)}
+.hidden{display:none!important}.quiz-head{display:flex;align-items:center;justify-content:space-between;padding:8px 0 13px}.back{border:0;background:none;font-size:15px;font-weight:700;color:var(--blue);padding:5px 0}.quiz-title{text-align:center;font-size:15px;font-weight:800}.quiz-stat{font-size:12px;color:var(--muted);font-weight:700}.progress-wrap{background:#e8ecf0;height:6px;border-radius:99px;overflow:hidden}.progress{height:100%;width:0;background:var(--blue);transition:width .25s}.question-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:700;margin:16px 0 8px}.question{font-size:22px;line-height:1.3;font-weight:850;margin:0 0 16px}.answer{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;background:#fff;color:var(--text);border:1px solid #d9dee4;border-radius:14px;padding:14px;margin:8px 0;cursor:pointer;line-height:1.35;font-weight:650}.answer:disabled{cursor:default}.letter{flex:0 0 29px;width:29px;height:29px;border-radius:9px;background:#f0f3f6;display:grid;place-items:center;font-weight:800;font-size:13px;color:#66717c}.answer.correct{border-color:#54bd8c;background:var(--greenbg)}.answer.correct .letter{background:var(--green);color:#fff}.answer.wrong{border-color:#ed8588;background:var(--redbg)}.answer.wrong .letter{background:var(--red);color:#fff}.feedback{padding:13px;border-radius:14px;line-height:1.45;margin-top:12px;border:1px solid}.feedback.good{background:var(--greenbg);border-color:#a8ddc3}.feedback.bad{background:var(--redbg);border-color:#f0b0b2}.next{width:100%;margin-top:12px}
+.result{text-align:center;padding:28px 18px}.result-icon{font-size:42px}.percent{font-size:58px;font-weight:900;margin:5px 0}.result-line{color:var(--muted)}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}.result-grid div{background:#f7f9fb;border-radius:14px;padding:12px}.result-grid b{display:block;font-size:19px}.result-grid small{color:var(--muted)}.actions{display:grid;gap:8px}.stats-big{font-size:54px;font-weight:900;text-align:center;margin:5px}.stat-list div{display:flex;justify-content:space-between;padding:13px 2px;border-bottom:1px solid var(--line)}.stat-list span{color:var(--muted)}
+.bottomnav{position:fixed;z-index:20;left:0;right:0;bottom:0;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);backdrop-filter:blur(18px);border-top:1px solid var(--line)}.navinner{width:min(560px,100%);margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.navitem{border:0;background:transparent;color:#89929c;padding:6px 3px 4px;border-radius:12px;font-size:10px;font-weight:750}.navitem .navicon{font-size:20px;display:block;margin-bottom:2px}.navitem.active{background:var(--blue2);color:var(--blue)}.footer{text-align:center;color:#9aa3ad;font-size:10px;margin-top:18px}
+@media(max-width:430px){.question{font-size:20px}.screen-title{font-size:25px}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="topbar"><div class="brand"><div class="brand-icon">🧪</div><div><h1>Химия</h1><small>Тренажёр</small></div></div><button class="iconbtn" onclick="renderStats()">📊</button></header>
 
-<section id="home" class="card hero">
-  <div class="pills"><span class="pill">50 вопросов</span><span class="pill">Общая химия</span><span class="pill">Биоорганика</span></div>
-  <h2>Натаскиваемся до автоматизма.</h2>
-  <p>Как в билетах ПДД: выбираешь вариант, сразу получаешь разбор ошибки, а ошибочные вопросы автоматически возвращаются в отдельную тренировку.</p>
-  <div class="quick">
-    <div><b id="totalAnswered">0</b><span>решено</span></div>
-    <div><b id="totalCorrect">0</b><span>правильно</span></div>
-    <div><b id="bestStreak">0</b><span>лучшая серия</span></div>
+<section id="home">
+  <div class="screen-title">Добро пожаловать!</div>
+  <div class="card start-card">
+    <div class="eyebrow">Подготовка к зачёту</div>
+    <h2>Проверь знания<br>по химии</h2>
+    <p>Решай вопросы в формате билетов. После каждого ответа сразу увидишь правильный вариант и объяснение.</p>
+    <button class="btn primary" style="width:100%" onclick="prepare('ticket')">Начать тренировку</button>
   </div>
-</section>
-
-<section id="homeModes" class="card">
-  <div class="grid">
-    <button class="btn primary mode" onclick="prepare('ticket')"><strong>🎫 Случайный билет</strong><small>20 вопросов • каждый раз новый порядок</small></button>
-    <button class="btn mode" onclick="prepare('all')"><strong>📚 Все вопросы</strong><small>Вся база в перемешанном порядке</small></button>
-    <button class="btn mode" onclick="prepare('general')"><strong>⚗️ Общая химия</strong><small>Термодинамика, растворы, буферы и др.</small></button>
-    <button class="btn mode" onclick="prepare('bio')"><strong>🧬 Биоорганика</strong><small>Углеводы, липиды, аминокислоты, ГЦ</small></button>
+  <div class="stats-row">
+    <div class="stat"><b id="totalAnswered">0</b><span>решено</span></div>
+    <div class="stat"><b id="totalCorrect">0</b><span>правильно</span></div>
+    <div class="stat"><b id="bestStreak">0</b><span>лучшая серия</span></div>
   </div>
-  <button class="btn" style="width:100%;margin-top:10px" onclick="prepare('mistakes')">🔁 Повторить ошибки — <b id="mistakeCount">0</b></button>
+  <div class="section-head"><h3>Тренировка</h3></div>
+  <div class="mode-list">
+    <button class="mode" onclick="prepare('ticket')"><span class="mode-icon">🎫</span><span class="mode-copy"><strong>Билет</strong><small>20 вопросов в случайном порядке</small></span><span class="mode-arrow">›</span></button>
+    <button class="mode" onclick="prepare('all')"><span class="mode-icon">📚</span><span class="mode-copy"><strong>Все вопросы</strong><small>Полная база вопросов</small></span><span class="mode-arrow">›</span></button>
+    <button class="mode" onclick="prepare('general')"><span class="mode-icon">⚗️</span><span class="mode-copy"><strong>Общая химия</strong><small>Растворы, термодинамика, равновесие и другое</small></span><span class="mode-arrow">›</span></button>
+    <button class="mode" onclick="prepare('bio')"><span class="mode-icon">🧬</span><span class="mode-copy"><strong>Биоорганическая химия</strong><small>Углеводы, липиды, аминокислоты</small></span><span class="mode-arrow">›</span></button>
+    <button class="mode mistake" onclick="prepare('mistakes')"><span class="mode-icon">↻</span><span class="mode-copy"><strong>Мои ошибки</strong><small><b id="mistakeCount">0</b> вопросов требуют повторения</small></span><span class="mode-arrow">›</span></button>
+  </div>
 </section>
 
 <section id="quiz" class="hidden">
-  <div class="navrow"><button class="btn" onclick="renderHome()">← Меню</button><button class="btn" onclick="renderStats()">📊 Статистика</button></div>
-  <div class="card">
-    <div class="topline"><span id="modeName"></span><span id="counter"></span></div>
-    <div class="progress"><div id="progress"></div></div>
-    <div class="topline"><span id="category"></span><span id="scoreNow"></span></div>
+  <div class="quiz-head"><button class="back" onclick="renderHome()">‹ Меню</button><div class="quiz-title" id="modeName"></div><div class="quiz-stat" id="counter"></div></div>
+  <div class="progress-wrap"><div id="progress" class="progress"></div></div>
+  <div class="card" style="margin-top:12px">
+    <div class="question-meta"><span id="category"></span><span id="scoreNow"></span></div>
     <div id="question" class="question"></div>
     <div id="answers"></div>
     <div id="feedback" class="feedback hidden"></div>
-    <button id="nextBtn" class="btn primary hidden" style="width:100%;margin-top:12px" onclick="nextQuestion()">Следующий вопрос →</button>
+    <button id="nextBtn" class="btn primary next hidden" onclick="nextQuestion()">Следующий вопрос →</button>
   </div>
 </section>
 
 <section id="result" class="card result hidden"></section>
-<section id="stats" class="card hidden"><h2>📊 Статистика</h2><div id="statsBody"></div><button class="btn" style="width:100%;margin-top:9px" onclick="renderHome()">← В меню</button></section>
-<div class="footer">Учебный тренажёр • вопросы основаны на предоставленном комплекте тестовых заданий</div>
+<section id="stats" class="card hidden"><h2>Статистика</h2><div id="statsBody"></div><button class="btn" style="width:100%;margin-top:10px" onclick="renderHome()">Вернуться в меню</button></section>
+<div class="footer">Учебный тренажёр • вопросы из предоставленного комплекта</div>
 </main>
-<script src="app.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
+
+<nav class="bottomnav"><div class="navinner">
+  <button class="navitem active" id="navHome" onclick="renderHome()"><span class="navicon">⌂</span>Главная</button>
+  <button class="navitem" onclick="prepare('ticket')"><span class="navicon">▣</span>Билеты</button>
+  <button class="navitem" onclick="prepare('mistakes')"><span class="navicon">↻</span>Ошибки</button>
+  <button class="navitem" onclick="renderStats()"><span class="navicon">◉</span>Статистика</button>
+</div></nav>
+<script src="app.js"></script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}</script>
 </body></html>

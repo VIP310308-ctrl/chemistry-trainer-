@@ -15,6 +15,8 @@ function persist() {
 }
 function setScreen(name) {
   ['home','quiz','result','stats'].forEach(x => $(x).classList.toggle('hidden', x !== name));
+  document.querySelectorAll('.navitem').forEach(x=>x.classList.remove('active'));
+  if(name==='home') $('navHome')?.classList.add('active');
 }
 function modeLabel(m) {
   return {ticket:'Билет', all:'Все вопросы', general:'Общая химия', bio:'Биоорганическая химия', mistakes:'Ошибки'}[m];
@@ -40,7 +42,7 @@ function renderQuestion() {
   $('modeName').textContent = modeLabel(state.mode);
   $('counter').textContent = `${state.index+1} / ${state.deck.length}`;
   $('scoreNow').textContent = `${state.score} верно`;
-  $('progress').style.width = `${state.index/state.deck.length*100}%`;
+  $('progress').style.width = `${(state.index+1)/state.deck.length*100}%`;
   $('category').textContent = x.cat;
   $('question').textContent = x.q;
   $('answers').innerHTML = '';
