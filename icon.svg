@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-<rect width="180" height="180" rx="42" fill="#5965e8"/>
-<text x="90" y="122" text-anchor="middle" font-size="92">🧪</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#0b57d0"/><path d="M205 90h102v32h-30v96l92 153c17 29-4 65-38 65H181c-34 0-55-36-38-65l92-153v-96h-30V90zm57 167-67 112h134l-67-112z" fill="white"/></svg>
